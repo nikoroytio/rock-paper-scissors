@@ -1,13 +1,16 @@
+/* let's define variables for scores so we can keep the game exactly at 5 rounds */
 let playerScore = 0
 let computerScore = 0
 let drawScore = 0
 
+/* function for computers decision making */
 function getComputerChoice() {
     let options = ["Rock", "Paper", "Scissors"]
     choice = options[Math.floor(Math.random() * options.length)]
     return choice
 }
 
+/* function for the game itself. At start it converts strings to lowercase for easier comparing */
 function game(playerSelection, computerSelection) {
 
     let player = playerSelection.toLowerCase()
@@ -34,6 +37,7 @@ function game(playerSelection, computerSelection) {
         
 }
 
+/* function for the result. Compares only player and computer scores because they are relevant */
 function result() {
     if (playerScore > computerScore) {
         console.log ("Player wins with " + playerScore + " rounds won!")
@@ -48,7 +52,7 @@ function result() {
 }
 
 
-
+/*function loop for 5 rounds */
 while ((playerScore + computerScore + drawScore) < 5) {
     const computerSelection = getComputerChoice()
     let playerSelection = window.prompt("Rock, Paper or scissors? (type in your answer)")
